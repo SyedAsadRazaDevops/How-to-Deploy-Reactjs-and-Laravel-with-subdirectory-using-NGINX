@@ -1,0 +1,102 @@
+user  nginx;  ## Default: nobody
+worker_processes  1;  ## Default: 1
+
+error_log  /var/log/nginx/error.log warn;
+pid        /var/run/nginx.pid;
+
+
+events {
+  worker_connections  1024;  ## Default: 1024
+}
+
+http {
+  include    etc/nginx/mime.types;
+#   include    /etc/nginx/proxy.conf;
+#   include    /etc/nginx/fastcgi.conf;
+#   index    index.html index.htm index.php;
+
+  default_type application/octet-stream;
+  log_format   main '$remote_addr - $remote_user [$time_local] "$request" '
+                    '"$request" $body_bytes_sent "$http_referer" '
+                    '"$http_user_agent" "$http_x_forwarded_for"';
+
+  access_log   /var/log/nginx/access.log  main;
+  sendfile     on;
+  tcp_nopush   on;
+  server_names_hash_bucket_size 65; # this seems to be required for some vhosts
+
+  server { 
+    listen       80;
+    # server_name  domain1.com www.domain1.com;
+    # access_log   logs/domain1.access.log  main;
+    # root         html;
+     
+     location /.well-known/acme-challenge/ {
+       root /letsencrypt/;
+    }
+    # location ~ \.php$ {
+    #   fastcgi_pass   127.0.0.1:1025;
+    # }
+     location /{
+        gzip off;
+        root /usr/share/nginx/html/;
+        index index.html;
+    }
+
+  }
+
+
+
+
+#   server { # simple reverse-proxy
+#     listen       80;
+#     server_name  domain2.com www.domain2.com;
+#     access_log   logs/domain2.access.log  main;
+
+#     # serve static files
+#     location ~ ^/(images|javascript|js|css|flash|media|static)/  {
+#       root    /var/www/virtual/big.server.com/htdocs;
+#       expires 30d;
+#     }
+
+#     # pass requests for dynamic content to rails/turbogears/zope, et al
+#     location / {
+#       proxy_pass      http://127.0.0.1:8080;
+#     }
+#   }
+
+#   upstream big_server_com {
+#     server 127.0.0.3:8000 weight=5;
+#     server 127.0.0.3:8001 weight=5;
+#     server 192.168.0.1:8000;
+#     server 192.168.0.1:8001;
+#   }
+
+
+
+
+
+#   server { # simple load balancing
+#     listen          80;
+#     server_name     big.server.com;
+#     access_log      logs/big.server.access.log main;
+
+#     location / {
+#       proxy_pass      http://big_server_com;
+#     }
+#   }
+}
+
+
+
+# proxy.conf
+# proxy_redirect          off;
+# proxy_set_header        Host            $host;
+# proxy_set_header        X-Real-IP       $remote_addr;
+# proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+# client_max_body_size    10m;
+# client_body_buffer_size 128k;
+# proxy_connect_timeout   90;
+# proxy_send_timeout      90;
+# proxy_read_timeout      90;
+# proxy_buffers           32 4k;
