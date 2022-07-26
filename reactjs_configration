@@ -1,0 +1,63 @@
+server {
+
+    root /var/www/html;
+    index index.html index.htm index.php;
+    server_name my.domain.com;
+
+#    location / {
+#        try_files $uri $uri/ /index.php$is_args$args;
+#    }
+
+
+#<!-- Project-1 -->
+    location =  /Project-1 {
+
+            root /var/www/html/Project-1-frontend/build;
+#           try_files /index.html =404;
+            try_files $uri $uri/ /Project-1/index.html;
+    }
+
+    location ~ ^/Project-1(.*) {
+
+            root /var/www/html/Project-1-frontend/build;
+            try_files $1 $1/ /index.html =404;
+
+}
+
+#<!-- Project-2 -->
+location =  /Project-2 {
+
+            root //var/www/html/Project-2-frontend/build;
+#           try_files /index.html =404;
+            try_files $uri $uri/ /Project-2/index.html;
+    }
+
+    location ~ ^/Project-2(.*) {
+
+            root /var/www/html/Project-2-frontend/build;
+            try_files $1 $1/ /index.html =404;
+}
+
+
+
+    #listen [::]:443 ssl; # managed by Certbot
+    #listen 443 ssl; # managed by Certbot
+    #ssl_certificate /etc/letsencrypt/live/my.domain.com/fullchain.pem; # managed by Certbot
+    #ssl_certificate_key /etc/letsencrypt/live/my.domain.com/privkey.pem; # managed by Certbot
+    #include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    #ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}
+#server {
+#    if ($host = my.domain.com) {
+#        return 301 https://$host$request_uri;
+#    } # managed by Certbot
+
+
+#    listen 80;
+#    listen [::]:80;
+#    server_name my.domain.com;
+#    return 404; # managed by Certbot
+
+
+#}
