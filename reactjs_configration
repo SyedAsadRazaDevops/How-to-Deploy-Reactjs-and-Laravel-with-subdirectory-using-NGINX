@@ -39,7 +39,7 @@ location =  /Project-2 {
 }
 
 
-
+#############_____Certbot-SSL-part-you-can-skip-if-you-dont-need____############## 
     #listen [::]:443 ssl; # managed by Certbot
     #listen 443 ssl; # managed by Certbot
     #ssl_certificate /etc/letsencrypt/live/my.domain.com/fullchain.pem; # managed by Certbot
