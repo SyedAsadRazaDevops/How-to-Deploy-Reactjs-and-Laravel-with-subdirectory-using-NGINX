@@ -1,3 +1,4 @@
+![deploying-react-to-subfolder](https://user-images.githubusercontent.com/71556060/180983908-83280295-3047-4f30-93ac-f8a46e85b6d4.png)
 # Deploy Reactjs & Laravel with subdirectory using NGINX
 # Overview
 This what you will need to know if you are building a react-app on top of (ASP.NET Web API) any project on one single domain. So the API will sit at the root and the UI in a sub-folder in order to access Active Directory credentials for an Intranet application.
