@@ -17,7 +17,7 @@ Add an entry for **"homepage"** in the same section with ***“name”** towards
 ```
 sudo systemctl restart nginx
 ```
-- you can check the full configration on github repo file name **" "**.
+- you can check the full configration on github repo file name **"reactjs_configration"**.
 
 
 **Nginx config:**
