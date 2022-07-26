@@ -1,5 +1,4 @@
 # Deploy Reactjs & Laravel with subdirectory using NGINX
-
 # Overview
 This what you will need to know if you are building a react-app on top of (ASP.NET Web API) any project on one single domain. So the API will sit at the root and the UI in a sub-folder in order to access Active Directory credentials for an Intranet application.
 
@@ -72,5 +71,9 @@ sudo systemctl restart nginx
 
 
 **hope you will enjoyed it.**
-
-
+LINK:
+- https://www.digitalocean.com/community/questions/nginx-subdirectory-css-and-js-not-wokring-laravel
+- https://stackoverflow.com/questions/53207059/react-nginx-routing-to-subdirectory
+- https://github.com/wiput1999/react-subdirectory
+- https://fullstacksoup.blog/2021/01/20/react-deploy-to-a-sub-folder/
+- https://webdock.io/en/docs/how-guides/laravel-guides/multiple-laravel-installs-subfolders-nginx-rewrite-rules-full-guide
