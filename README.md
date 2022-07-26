@@ -42,7 +42,7 @@ sudo systemctl restart nginx
 - What we try to achieve here is to run the Laravel application in a subdirectory of the main domain. For example: **domain.com/Project-1/**
 - For the matter of semantics and good practice, we will place our second Laravel install in the folder: **/var/www/project-1-backend**
 - Add this code to your Nginx configuration file, typically found at **/etc/nginx/sites-available/project-1-backend**, at the bottom of the server block:
-- you can check the full configration on github repo file name **" "**.
+- you can check the full configration on github repo file name **"laravel_php8.1_configration"**.
 
 **Nginx config:**
 ```
