@@ -1,0 +1,144 @@
+server {
+
+root /var/www/top/public;
+index index.html index.htm index.php;
+server_name my.domain.com;
+
+charset utf-8;
+
+
+location / {
+    try_files $uri $uri/ /index.php$is_args$args;
+}
+
+#<!-- project-1 -->
+location /project-1 {
+    alias /var/www/html/myproject-1/public;
+    try_files $uri $uri/ @project-1;
+
+    location ~ \.php$ {
+        #include snippets/fastcgi-php.conf;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $request_filename;
+        #you can change your php version as per your need.
+        fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;
+    }
+}
+#<!-- project-2 -->
+location /project-2 {
+    alias /var/www/html/myproject-2/public;
+    try_files $uri $uri/ @project-2;
+
+    location ~ \.php$ {
+        include fastcgi_params;
+        #include snippets/fastcgi-php.conf;
+        fastcgi_param SCRIPT_FILENAME $request_filename;
+        #you can change your php version as per your need.
+        fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;
+    }
+}
+#<!-- project-3 -->
+location /project-3 {
+    alias /var/www/html/myproject-3/public;
+    try_files $uri $uri/ @project-3;
+
+    location ~ \.php$ {
+        include fastcgi_params;
+        #include snippets/fastcgi-php.conf;
+        fastcgi_param SCRIPT_FILENAME $request_filename;
+        #you can change your php version as per your need.
+        fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;
+    }
+}
+#<!-- project-4 -->
+location /project-4 {
+    alias /var/ww/html/myproject-4/public;
+    try_files $uri $uri/ @project-4;
+
+    location ~ \.php$ {
+        include fastcgi_params;
+        #include snippets/fastcgi-php.conf;
+        fastcgi_param SCRIPT_FILENAME $request_filename;
+        #you can change your php version as per your need.
+        fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;
+    }
+}
+#<!-- project-5 -->
+location /project-5 {
+    alias /var/www/html/myproject-5/public;
+    try_files $uri $uri/ @project-5;
+
+    location ~ \.php$ {
+        #include snippets/fastcgi-php.conf;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $request_filename;
+        #you can change your php version as per your need.
+        fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;
+    }
+}
+#<!-- project-6 -->
+location /project-6 {
+    alias /var/www/html/myproject-6/public;
+    try_files $uri $uri/ @project-6;
+
+    location ~ \.php$ {
+        #include snippets/fastcgi-php.conf;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $request_filename;
+        #you can change your php version as per your need.
+        fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;
+    }
+}
+
+
+location @project-1 {
+    rewrite /project-1/(.*)$ /project-1/index.php?/$1 last;
+}
+location @project-2 {
+    rewrite /project-2/(.*)$ /project-2/index.php?/$1 last;
+}
+location @project-3 {
+    rewrite /project-3/(.*)$ /project-3/index.php?/$1 last;
+}
+location @project-4 {
+    rewrite /project-4/(.*)$ /project-4/index.php?/$1 last;
+}
+location @project-5 {
+    rewrite /project-5/(.*)$ /project-5/index.php?/$1 last;
+}
+location @project-6 {
+    rewrite /project-6/(.*)$ /project-6/index.php?/$1 last;
+}
+
+
+location ~ \.php$ {
+    #include snippets/fastcgi-php.conf;
+     include fastcgi_params;
+     #you can change your php version as per your need.
+     fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;
+}
+
+#############_____Certbot-SSL-part-you-can-skip-if-you-dont-need____############## 
+#listen [::]:443 ssl; # managed by Certbot
+#listen 443 ssl; # managed by Certbot
+#ssl_certificate /etc/letsencrypt/live/my.domain.com/fullchain.pem; # managed by Certbot
+#ssl_certificate_key /etc/letsencrypt/live/my.domain.com/privkey.pem; # managed by Certbot
+#include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+#ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}
+
+#server {
+#if ($host = my.domain.com) {
+#    return 301 https://$host$request_uri;
+#} # managed by Certbot
+
+
+#listen 80 default_server;
+#listen [::]:80 default_server;
+
+#server_name my.domain.com;
+#return 404; # managed by Certbot
+
+
+#}
