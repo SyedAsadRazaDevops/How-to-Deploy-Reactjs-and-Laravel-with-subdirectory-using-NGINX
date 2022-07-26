@@ -1,8 +1,9 @@
-![deploying-react-to-subfolder](https://user-images.githubusercontent.com/71556060/180983908-83280295-3047-4f30-93ac-f8a46e85b6d4.png)
 # Deploy Reactjs & Laravel with subdirectory using NGINX
+![deploying-react-to-subfolder](https://user-images.githubusercontent.com/71556060/180983908-83280295-3047-4f30-93ac-f8a46e85b6d4.png)
 # Overview
 This what you will need to know if you are building a react-app on top of (ASP.NET Web API) any project on one single domain. So the API will sit at the root and the UI in a sub-folder in order to access Active Directory credentials for an Intranet application.
 
+![Deploy-react-js-in-subdirectory](https://user-images.githubusercontent.com/71556060/180984366-a1a0f1ff-6d66-4e4a-a5ca-846d1b8f9b23.jpg)
 # React App in subdirectory
 
 First step is to update the **package.json** file from the root of your application.
