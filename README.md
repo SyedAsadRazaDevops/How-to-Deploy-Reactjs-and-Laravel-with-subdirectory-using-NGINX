@@ -74,6 +74,7 @@ sudo systemctl restart nginx
 - you can check the full configration on github repo file name **" "**.
 
 
+![octo](https://user-images.githubusercontent.com/71556060/180984837-af4909db-8638-43bf-9fd6-808cb376c0c7.png)
 **hope you will enjoyed it.**
 LINK:
 - https://www.digitalocean.com/community/questions/nginx-subdirectory-css-and-js-not-wokring-laravel
