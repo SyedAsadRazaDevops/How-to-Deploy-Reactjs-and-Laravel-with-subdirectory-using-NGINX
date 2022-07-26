@@ -33,6 +33,8 @@ sudo systemctl restart nginx
     }
 ```
 
+![images](https://user-images.githubusercontent.com/71556060/180982085-391685d5-1dce-44ff-bf7b-a36019bc180b.png)
+
 # Laravel App in subdirectory
 
 - What we try to achieve here is to run the Laravel application in a subdirectory of the main domain. For example: **domain.com/Project-1/**
